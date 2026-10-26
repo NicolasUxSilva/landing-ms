@@ -1,0 +1,166 @@
+---
+import Icon from './Icon.astro';
+import { FAQ } from '../data/content';
+import { CONTACT, whatsappUrl } from '../config/site';
+
+const wa = whatsappUrl('Olá! Tenho uma dúvida sobre servidores dedicados.');
+---
+
+<section class="section" id="duvidas" aria-labelledby="faq-title">
+  <div class="container faq-grid">
+    <div class="faq-aside">
+      <p class="eyebrow"><b>08</b> Dúvidas</p>
+      <h2 id="faq-title">Perguntas frequentes</h2>
+      <p>Não encontrou a sua dúvida? Fale com a equipe comercial.</p>
+      <div class="faq-contact">
+        <a class="btn btn--outline" href={wa} target="_blank" rel="noopener" data-track="contact_whatsapp_click" data-track-location="faq">
+          <Icon name="whatsapp" class="wa-icon" /> WhatsApp
+        </a>
+        <a class="faq-mail" href={`mailto:${CONTACT.emailCommercial}`}>{CONTACT.emailCommercial}</a>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      {
+        FAQ.map((f) => (
+          <details class="faq-item">
+            <summary>
+              <h3>{f.q}</h3>
+              <span class="faq-toggle" aria-hidden="true">
+                <Icon name="plus" size={18} />
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>{f.a}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-grid {
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+      gap: 4rem;
+    }
+
+    .faq-aside {
+      position: sticky;
+      top: calc(var(--header-h) + 32px);
+      align-self: start;
+    }
+  }
+
+  .faq-aside h2 {
+    margin-top: 1.25rem;
+    font-size: var(--t-h2);
+  }
+
+  .faq-aside > p:not(.eyebrow) {
+    margin-top: 1rem;
+    color: var(--c-ink-2);
+  }
+
+  .faq-contact {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .faq-mail {
+    color: var(--c-indigo-600);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-underline-offset: 3px;
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--c-line-2);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--c-line-2);
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.35rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary h3 {
+    font-family: var(--f-text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  .faq-item summary:hover h3 {
+    color: var(--c-indigo-600);
+  }
+
+  .faq-toggle {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    flex: none;
+    border: 1px solid var(--c-line-2);
+    border-radius: 50%;
+    transition: transform 0.25s var(--ease-out), background-color 0.2s, border-color 0.2s;
+  }
+
+  .faq-item[open] .faq-toggle {
+    transform: rotate(45deg);
+    background: var(--c-indigo-950);
+    border-color: var(--c-indigo-950);
+    color: var(--c-on-dark);
+  }
+
+  .faq-answer {
+    padding: 0 3.5rem 1.5rem 0;
+  }
+
+  .faq-answer p {
+    color: var(--c-ink-2);
+    max-width: 68ch;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-item[open] .faq-answer {
+      animation: faq-in 0.3s var(--ease-out);
+    }
+  }
+
+  @keyframes faq-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .faq-answer {
+      padding-right: 0;
+    }
+  }
+</style>

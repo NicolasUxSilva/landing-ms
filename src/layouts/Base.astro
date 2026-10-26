@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import '../styles/simulator.css';
+import soraUrl from '@fontsource-variable/sora/files/sora-latin-wght-normal.woff2?url';
+import interUrl from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import monoUrl from '@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url';
+import { ANALYTICS, CONTACT, SITE, SOCIAL } from '../config/site';
+import { FAQ } from '../data/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const ogImage = new URL(`${base}/og-servidores-dedicados.jpg`, SITE.origin).toString();
+
+const fontFaces = `
+@font-face{font-family:'Sora Variable';font-style:normal;font-display:swap;font-weight:100 800;src:url(${soraUrl}) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Inter Variable';font-style:normal;font-display:swap;font-weight:100 900;src:url(${interUrl}) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JetBrains Mono Variable';font-style:normal;font-display:swap;font-weight:100 800;src:url(${monoUrl}) format('woff2-variations');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'MSSERVER',
+    url: SITE.origin,
+    logo: 'https://msserver.com.br/wp-content/uploads/2025/08/cropped-MS-Server_Cloud-1-scaled-1-e1755871178311.png',
+    email: CONTACT.emailCommercial,
+    telephone: CONTACT.phoneE164,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: CONTACT.address.street,
+      addressLocality: CONTACT.address.city,
+      addressRegion: CONTACT.address.region,
+      addressCountry: CONTACT.address.country,
+    },
+    contactPoint: [
+      { '@type': 'ContactPoint', contactType: 'sales', telephone: CONTACT.phoneE164, email: CONTACT.emailCommercial, areaServed: 'BR', availableLanguage: 'Portuguese' },
+    ],
+    sameAs: SOCIAL.map((s) => s.url),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={SITE.canonical} />
+    <link rel="alternate" hreflang="pt-BR" href={SITE.canonical} />
+    <link rel="alternate" hreflang="pt-PT" href={SITE.alternatePtPt} />
+    <meta name="robots" content={import.meta.env.PUBLIC_NOINDEX === 'true' ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <meta name="theme-color" content="#f5f4f0" />
+
+    <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MSSERVER" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={SITE.canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32.png`} />
+    <link rel="icon" type="image/png" sizes="192x192" href={`${base}/icon-192.png`} />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
+
+    <link rel="preload" href={soraUrl} as="font" type="font/woff2" crossorigin />
+    <style set:html={fontFaces}></style>
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
+    {
+      ANALYTICS.gtmId && (
+        <script
+          is:inline
+          set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${ANALYTICS.gtmId}');`}
+        />
+      )
+    }
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    {
+      ANALYTICS.gtmId && (
+        <noscript>
+          <iframe src={`https://www.googletagmanager.com/ns.html?id=${ANALYTICS.gtmId}`} height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager" />
+        </noscript>
+      )
+    }
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <slot />
+    <script>
+      import { initPage } from '../scripts/page';
+      initPage();
+    </script>
+  </body>
+</html>

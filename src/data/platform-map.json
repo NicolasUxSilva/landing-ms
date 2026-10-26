@@ -1,0 +1,281 @@
+{
+  "$comment": "Classificação curada dos servidores físicos do catálogo WooCommerce por plataforma. Fonte: descrições dos produtos em msserver.com.br (campo 'ESPECIFICAÇÕES'), conferidas com a documentação dos fabricantes quando a descrição tinha erro evidente (ver docs/DADOS-E-DIVERGENCIAS.md). Chave = slug do produto.",
+  "tiers": {
+    "scalable": {
+      "label": "Intel Xeon Scalable",
+      "memory": "DDR4"
+    },
+    "e5v34": {
+      "label": "Intel Xeon E5 v3/v4",
+      "memory": "DDR4"
+    },
+    "e5v12": {
+      "label": "Intel Xeon E5 v1/v2",
+      "memory": "DDR3"
+    },
+    "entry": {
+      "label": "Processador único de entrada",
+      "memory": "DDR3/DDR4"
+    },
+    "legacy": {
+      "label": "Xeon 5500/5600 e E7 (gerações anteriores)",
+      "memory": "DDR3"
+    }
+  },
+  "models": {
+    "servidor-hp-proliant-dl360-g10": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen10"
+    },
+    "servidor-hp-proliant-dl380-g10": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen10"
+    },
+    "servidor-dell-poweredge-r740xd": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração"
+    },
+    "servidor-dell-poweredge-r540-copy": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração"
+    },
+    "servidor-dell-poweredge-r640-2": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "exclude": true,
+      "note": "Listagem duplicada do Dell PowerEdge R640 (produto 7502, só variação 32 GB) com preço diferente da listagem principal (produto 5632) e foto do R440. Fica fora do simulador até a MSSERVER confirmar qual preço vale."
+    },
+    "servidor-dell-poweredge-r640": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração"
+    },
+    "servidor-dell-r740": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração"
+    },
+    "servidor-dell-r440": {
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração"
+    },
+    "hp-dl380-g9": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9"
+    },
+    "servidor-hp-dl360-g9": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9"
+    },
+    "servidor-torre-hp-ml350-g9": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9"
+    },
+    "servidor-torre-hp-ml110-g9": {
+      "tier": "e5v34",
+      "sockets": 1,
+      "family": "HPE ProLiant Gen9"
+    },
+    "servidor-dell-poweredge-r530": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-dell-poweredge-r730-xd": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-dell-poweredge-r730": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-dell-r630": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-dell-r430": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-dell-t630": {
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração"
+    },
+    "servidor-hp-proliant-dl380p-g8": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8"
+    },
+    "servidor-hp-dl360p-g8": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8"
+    },
+    "servidor-hp-dl360-g8": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8"
+    },
+    "servidor-torre-hp-ml350-g8": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8"
+    },
+    "servidor-dell-poweredge-r520": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-dell-poweredge-r720": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-dell-r620": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-dell-r420": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-torre-dell-t420-2": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-dell-t620": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração"
+    },
+    "servidor-dell-t420": {
+      "tier": "e5v12",
+      "sockets": 1,
+      "family": "Dell PowerEdge 12ª geração",
+      "note": "Slug 'servidor-dell-t420' corresponde ao produto 'Dell PowerEdge T320'."
+    },
+    "servidor-ibm-x3650-m4": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "IBM System x M4"
+    },
+    "servidor-ibm-x3550-m4": {
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "IBM System x M4"
+    },
+    "servidor-dell-r210": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge"
+    },
+    "servidor-dell-r220": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge"
+    },
+    "servidor-dell-r320": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "note": "Slug 'servidor-dell-r320' corresponde ao produto 'Dell PowerEdge R230'; a descrição publicada cita 2 processadores E5-2400, o que não corresponde ao R230 (1 processador Xeon E3-1200 v5/v6)."
+    },
+    "servidor-dell-t110": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge"
+    },
+    "servidor-torre-dell-t330": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge"
+    },
+    "servidor-hp-ml310-g8": {
+      "tier": "entry",
+      "sockets": 1,
+      "family": "HPE ProLiant Gen8"
+    },
+    "servidor-hp-proliant-dl380-g7": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G7"
+    },
+    "servidor-hp-dl380-g6": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6"
+    },
+    "servidor-rack-hp-dl160": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6"
+    },
+    "servidor-hp-dl360-g7": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G7"
+    },
+    "servidor-rack-hp-dl360-g6": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6"
+    },
+    "servidor-dell-r610": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-r910": {
+      "tier": "legacy",
+      "sockets": 4,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-r510": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-r410": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-t710": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-t610": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-dell-t410": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração"
+    },
+    "servidor-ibm-x3650-m3": {
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "IBM System x M3"
+    }
+  }
+}

@@ -1,0 +1,279 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import team from '../assets/photos/equipe-msserver.jpg';
+import { CASES, STATS, TESTIMONIALS } from '../data/content';
+import { LINKS } from '../config/site';
+---
+
+<section class="section section--dark on-dark" id="clientes" aria-labelledby="proof-title">
+  <div class="container">
+    <div class="proof-top">
+      <div class="proof-copy">
+        <p class="eyebrow"><b>07</b> Quem atende</p>
+        <h2 id="proof-title">Especialistas de verdade do outro lado</h2>
+        <p class="proof-lead">Servidores sustentam entregas críticas. Por isso o atendimento da MSSERVER trata questões técnicas de forma humana e pró-ativa, do dimensionamento ao pós-venda.</p>
+        <dl class="proof-stats">
+          {
+            STATS.map((s) => (
+              <div>
+                <dt>{s.label}</dt>
+                <dd>{s.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+      <figure class="proof-photo" data-reveal>
+        <Image src={team} alt="Equipe da MSSERVER reunida no escritório, com camisetas da empresa" widths={[640, 960, 1400, 1800]} sizes="(min-width: 1024px) 680px, 100vw" loading="lazy" />
+        <figcaption>Equipe MSSERVER</figcaption>
+      </figure>
+    </div>
+
+    <ul class="quotes" aria-label="Depoimentos de clientes">
+      {
+        TESTIMONIALS.map((t, i) => (
+          <li class="quote" data-reveal style={`--reveal-i:${i % 2}`}>
+            <blockquote>
+              <p>“{t.quote}”</p>
+            </blockquote>
+            <p class="quote-who">
+              <strong>{t.name}</strong>
+              <span>{t.company}</span>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="cases">
+      <div class="cases-head">
+        <h3>Projetos entregues</h3>
+        <a class="cases-link" href={LINKS.cases}>
+          Ver cases completos <Icon name="arrow-right" size={16} class="btn-arrow" />
+        </a>
+      </div>
+      <ul class="cases-grid">
+        {
+          CASES.map((c) => (
+            <li>
+              <span class="case-sector">{c.sector}</span>
+              <strong>{c.client}</strong>
+              <p>{c.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proof-top {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .proof-top {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 4rem;
+    }
+  }
+
+  .proof-copy h2 {
+    margin-top: 1.25rem;
+    font-size: var(--t-h2);
+    max-width: 14ch;
+  }
+
+  .proof-lead {
+    margin-top: 1.25rem;
+    color: var(--c-on-dark-2);
+    font-size: var(--t-lead);
+    max-width: 46ch;
+  }
+
+  .proof-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin: 2.25rem 0 0;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--c-line-dark);
+  }
+
+  .proof-stats div {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .proof-stats dd {
+    margin: 0;
+    font-family: var(--f-display);
+    font-size: clamp(2.4rem, 1.8rem + 2vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--c-on-dark);
+  }
+
+  .proof-stats dt {
+    margin-top: 0.4rem;
+    color: var(--c-on-dark-2);
+    font-size: 0.9rem;
+  }
+
+  .proof-photo {
+    position: relative;
+    margin: 0;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    background: var(--c-indigo-900);
+  }
+
+  .proof-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .proof-photo figcaption {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    background: rgb(14 13 34 / 0.72);
+    backdrop-filter: blur(6px);
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .quotes {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+    margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+  }
+
+  @media (min-width: 800px) {
+    .quotes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    border: 1px solid var(--c-line-dark);
+    border-radius: var(--r-lg);
+    background: rgb(255 255 255 / 0.03);
+  }
+
+  .quote blockquote {
+    margin: 0;
+  }
+
+  .quote blockquote p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--c-on-dark);
+  }
+
+  .quote-who {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.6rem;
+    align-items: baseline;
+    padding-top: 1rem;
+    border-top: 1px solid var(--c-line-dark);
+    font-size: 0.9rem;
+  }
+
+  .quote-who span {
+    color: var(--c-on-dark-3);
+  }
+
+  .cases {
+    margin-top: clamp(3rem, 2rem + 3vw, 4.5rem);
+  }
+
+  .cases-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--c-line-dark-2);
+  }
+
+  .cases-head h3 {
+    font-size: 1.35rem;
+  }
+
+  .cases-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--c-orange);
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+  }
+
+  .cases-link:hover :global(.btn-arrow) {
+    transform: translateX(3px);
+  }
+
+  .cases-grid {
+    list-style: none;
+    display: grid;
+  }
+
+  @media (min-width: 720px) {
+    .cases-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .cases-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .cases-grid li {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--c-line-dark);
+  }
+
+  .case-sector {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-orange);
+  }
+
+  .cases-grid strong {
+    font-family: var(--f-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .cases-grid p {
+    color: var(--c-on-dark-2);
+    font-size: 0.92rem;
+  }
+</style>

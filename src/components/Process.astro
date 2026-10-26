@@ -1,0 +1,122 @@
+---
+import { PROCESS } from '../data/content';
+---
+
+<section class="section" id="processo" aria-labelledby="proc-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow"><b>06</b> Processo</p>
+        <h2 id="proc-title">Da simulação ao servidor funcionando</h2>
+      </div>
+      <p>A simulação é o ponto de partida. Antes de qualquer proposta, um especialista confere o cenário com você.</p>
+    </div>
+
+    <ol class="proc">
+      {
+        PROCESS.map((p, i) => (
+          <li class="proc-item" data-reveal style={`--reveal-i:${i}`}>
+            <span class="proc-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .proc {
+    list-style: none;
+    display: grid;
+    gap: 0;
+    counter-reset: proc;
+  }
+
+  .proc-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    align-content: start;
+    column-gap: 1rem;
+    padding: 0 0 2rem;
+  }
+
+  .proc-item::before {
+    content: '';
+    position: absolute;
+    left: calc(1.625rem - 0.5px);
+    top: 3.25rem;
+    bottom: 0;
+    width: 1px;
+    background: var(--c-line-2);
+  }
+
+  .proc-item:last-child::before {
+    display: none;
+  }
+
+  .proc-num {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid var(--c-line-2);
+    border-radius: 50%;
+    background: var(--c-surface);
+    font-family: var(--f-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--c-ink-2);
+  }
+
+  .proc-item:first-child .proc-num {
+    background: var(--c-orange);
+    border-color: var(--c-orange);
+    color: #1a0f02;
+  }
+
+  .proc-item h3 {
+    font-size: 1.15rem;
+    padding-top: 0.85rem;
+  }
+
+  .proc-item p {
+    margin-top: 0.35rem;
+    color: var(--c-ink-2);
+    font-size: 0.95rem;
+    max-width: 40ch;
+  }
+
+  @media (min-width: 1024px) {
+    .proc {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .proc-item {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+
+    .proc-item::before {
+      left: 3.25rem;
+      right: -1.5rem;
+      top: calc(1.625rem - 0.5px);
+      bottom: auto;
+      width: auto;
+      height: 1px;
+    }
+
+    .proc-num {
+      grid-row: auto;
+      margin-bottom: 1.25rem;
+    }
+
+    .proc-item h3 {
+      padding-top: 0;
+    }
+  }
+</style>

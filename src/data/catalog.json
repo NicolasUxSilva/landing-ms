@@ -1,0 +1,1538 @@
+{
+  "source": "https://msserver.com.br/wp-json/wc/store/v1/products",
+  "fetchedAt": "2026-10-26T16:48:32.905Z",
+  "currency": "BRL",
+  "note": "Preços publicados no catálogo de msserver.com.br para o equipamento na variação de memória indicada. Valor 0 no WooCommerce é tratado como \"sob consulta\" (priceCents: null).",
+  "models": [
+    {
+      "id": 4947,
+      "slug": "servidor-rack-hp-dl160",
+      "name": "HP Proliant DL160 G6",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6",
+      "url": "https://msserver.com.br/servidor/servidor-rack-hp-dl160/",
+      "inStock": true,
+      "minPriceCents": 280000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 280000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 305000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 350000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4927,
+      "slug": "servidor-rack-hp-dl360-g6",
+      "name": "HP Proliant DL360 G6",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6",
+      "url": "https://msserver.com.br/servidor/servidor-rack-hp-dl360-g6/",
+      "inStock": true,
+      "minPriceCents": 280000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 280000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 305000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 350000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4891,
+      "slug": "servidor-dell-t110",
+      "name": "Dell PowerEdge T110",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t110/",
+      "inStock": true,
+      "minPriceCents": 280000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 280000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 375000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4827,
+      "slug": "servidor-dell-r210",
+      "name": "Dell PowerEdge R210",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r210/",
+      "inStock": true,
+      "minPriceCents": 310000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 310000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 395000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4950,
+      "slug": "servidor-hp-dl380-g6",
+      "name": "HP Proliant DL380 G6",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G6",
+      "url": "https://msserver.com.br/servidor/servidor-hp-dl380-g6/",
+      "inStock": true,
+      "minPriceCents": 320000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 320000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 350000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 398000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4930,
+      "slug": "servidor-hp-dl360-g7",
+      "name": "HP Proliant DL360 G7",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G7",
+      "url": "https://msserver.com.br/servidor/servidor-hp-dl360-g7/",
+      "inStock": true,
+      "minPriceCents": 320000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 320000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 345000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 390000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4831,
+      "slug": "servidor-dell-r220",
+      "name": "Dell PowerEdge R220",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r220/",
+      "inStock": true,
+      "minPriceCents": 320000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 320000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 370000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 480000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4974,
+      "slug": "servidor-ibm-x3650-m3",
+      "name": "IBM x3650 M3",
+      "brand": "IBM",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "IBM System x M3",
+      "url": "https://msserver.com.br/servidor/servidor-ibm-x3650-m3/",
+      "inStock": true,
+      "minPriceCents": 325000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 325000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 350000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 399000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4858,
+      "slug": "servidor-dell-r320",
+      "name": "Dell PowerEdge R230",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r320/",
+      "inStock": true,
+      "minPriceCents": 350000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 350000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 425000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4905,
+      "slug": "servidor-dell-t410",
+      "name": "Dell PowerEdge T410",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t410/",
+      "inStock": true,
+      "minPriceCents": 355000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 355000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 380000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 425000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4862,
+      "slug": "servidor-dell-r410",
+      "name": "Dell PowerEdge R410",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r410/",
+      "inStock": true,
+      "minPriceCents": 375000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 375000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 400000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 445000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5668,
+      "slug": "servidor-hp-proliant-dl380-g7",
+      "name": "HP Proliant DL380 G7",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "HPE ProLiant G7",
+      "url": "https://msserver.com.br/servidor/servidor-hp-proliant-dl380-g7/",
+      "inStock": true,
+      "minPriceCents": 380000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 380000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 410000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 450000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4966,
+      "slug": "servidor-hp-ml310-g8",
+      "name": "HP Proliant ML310 G8",
+      "brand": "HPE",
+      "formFactor": "torre",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "HPE ProLiant Gen8",
+      "url": "https://msserver.com.br/servidor/servidor-hp-ml310-g8/",
+      "inStock": true,
+      "minPriceCents": 390000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 390000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 450000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4909,
+      "slug": "servidor-dell-t420",
+      "name": "Dell PowerEdge T320",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "e5v12",
+      "sockets": 1,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t420/",
+      "inStock": true,
+      "minPriceCents": 420000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 420000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 445000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 498000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4994,
+      "slug": "servidor-dell-r610",
+      "name": "Dell Poweredge R610",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r610/",
+      "inStock": true,
+      "minPriceCents": 450000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 450000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 475000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 498000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 525000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4924,
+      "slug": "servidor-torre-dell-t420-2",
+      "name": "Dell PowerEdge T420",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-torre-dell-t420-2/",
+      "inStock": true,
+      "minPriceCents": 460000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 460000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 485000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 530000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4954,
+      "slug": "servidor-torre-hp-ml110-g9",
+      "name": "HP Proliant ML110 G9",
+      "brand": "HPE",
+      "formFactor": "torre",
+      "tier": "e5v34",
+      "sockets": 1,
+      "family": "HPE ProLiant Gen9",
+      "url": "https://msserver.com.br/servidor/servidor-torre-hp-ml110-g9/",
+      "inStock": true,
+      "minPriceCents": 480000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 480000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 530000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 620000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4911,
+      "slug": "servidor-dell-t610",
+      "name": "Dell PowerEdge T610",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t610/",
+      "inStock": true,
+      "minPriceCents": 480000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 480000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 505000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 550000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4978,
+      "slug": "servidor-ibm-x3650-m4",
+      "name": "IBM x3650 M4",
+      "brand": "IBM",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "IBM System x M4",
+      "url": "https://msserver.com.br/servidor/servidor-ibm-x3650-m4/",
+      "inStock": true,
+      "minPriceCents": 520000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 520000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 550000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 580000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4921,
+      "slug": "servidor-dell-t710",
+      "name": "Dell PowerEdge T710",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t710/",
+      "inStock": true,
+      "minPriceCents": 520000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 520000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 555000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 620000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4900,
+      "slug": "servidor-torre-dell-t330",
+      "name": "Dell PowerEdge T330",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "entry",
+      "sockets": 1,
+      "family": "Dell PowerEdge",
+      "url": "https://msserver.com.br/servidor/servidor-torre-dell-t330/",
+      "inStock": true,
+      "minPriceCents": 520000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 520000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 560000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 640000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4866,
+      "slug": "servidor-dell-r420",
+      "name": "Dell PowerEdge R420",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r420/",
+      "inStock": true,
+      "minPriceCents": 530000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 530000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 565000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 645000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4939,
+      "slug": "servidor-hp-dl360-g8",
+      "name": "HP Proliant DL360 G8",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8",
+      "url": "https://msserver.com.br/servidor/servidor-hp-dl360-g8/",
+      "inStock": true,
+      "minPriceCents": 550000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 550000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 575000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 620000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4879,
+      "slug": "servidor-dell-r510",
+      "name": "Dell PowerEdge R510",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 2,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r510/",
+      "inStock": true,
+      "minPriceCents": 550000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 550000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 575000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 620000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4970,
+      "slug": "servidor-ibm-x3550-m4",
+      "name": "IBM x3550 M4",
+      "brand": "IBM",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "IBM System x M4",
+      "url": "https://msserver.com.br/servidor/servidor-ibm-x3550-m4/",
+      "inStock": true,
+      "minPriceCents": 580000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 580000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 605000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 645000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4943,
+      "slug": "servidor-hp-dl360p-g8",
+      "name": "HP Proliant DL380P G8",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8",
+      "url": "https://msserver.com.br/servidor/servidor-hp-dl360p-g8/",
+      "inStock": true,
+      "minPriceCents": 580000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 580000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 605000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 640000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4958,
+      "slug": "servidor-torre-hp-ml350-g8",
+      "name": "HP Proliant ML350 G8",
+      "brand": "HPE",
+      "formFactor": "torre",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8",
+      "url": "https://msserver.com.br/servidor/servidor-torre-hp-ml350-g8/",
+      "inStock": true,
+      "minPriceCents": 590000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 590000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 615000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 660000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4914,
+      "slug": "servidor-dell-t620",
+      "name": "Dell PowerEdge T620",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t620/",
+      "inStock": true,
+      "minPriceCents": 625000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 625000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 650000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 698000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5662,
+      "slug": "servidor-hp-proliant-dl380p-g8",
+      "name": "HP Proliant DL380P G8 v2",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen8",
+      "url": "https://msserver.com.br/servidor/servidor-hp-proliant-dl380p-g8/",
+      "inStock": true,
+      "minPriceCents": 680000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 680000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 705000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 780000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5649,
+      "slug": "servidor-dell-poweredge-r520",
+      "name": "Dell PowerEdge R520",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r520/",
+      "inStock": true,
+      "minPriceCents": 750000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 750000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 785000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 830000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4881,
+      "slug": "servidor-dell-r620",
+      "name": "Dell PowerEdge R620",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r620/",
+      "inStock": true,
+      "minPriceCents": 895000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 895000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 915000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 985000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5642,
+      "slug": "servidor-dell-poweredge-r720",
+      "name": "Dell PowerEdge R720",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v12",
+      "sockets": 2,
+      "family": "Dell PowerEdge 12ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r720/",
+      "inStock": true,
+      "minPriceCents": 995000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 995000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1035000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1100000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4962,
+      "slug": "servidor-torre-hp-ml350-g9",
+      "name": "HP Proliant ML350 G9",
+      "brand": "HPE",
+      "formFactor": "torre",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9",
+      "url": "https://msserver.com.br/servidor/servidor-torre-hp-ml350-g9/",
+      "inStock": true,
+      "minPriceCents": 1150000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1150000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1225000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1320000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4935,
+      "slug": "servidor-hp-dl360-g9",
+      "name": "HP Proliant DL360 G9",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9",
+      "url": "https://msserver.com.br/servidor/servidor-hp-dl360-g9/",
+      "inStock": true,
+      "minPriceCents": 1200000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1200000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1250000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1325000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4986,
+      "slug": "servidor-dell-r910",
+      "name": "Dell PowerEdge R910",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "legacy",
+      "sockets": 4,
+      "family": "Dell PowerEdge 11ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r910/",
+      "inStock": true,
+      "minPriceCents": 1205000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1205000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1230000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1278000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 1350000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4870,
+      "slug": "servidor-dell-r430",
+      "name": "Dell PowerEdge R430",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r430/",
+      "inStock": true,
+      "minPriceCents": 1250000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1250000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1300000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1390000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 1535000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4917,
+      "slug": "servidor-dell-t630",
+      "name": "Dell PowerEdge T630",
+      "brand": "Dell",
+      "formFactor": "torre",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-t630/",
+      "inStock": true,
+      "minPriceCents": 1285000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1285000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1305000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1380000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5672,
+      "slug": "hp-dl380-g9",
+      "name": "HP Proliant DL380 G9",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen9",
+      "url": "https://msserver.com.br/servidor/hp-dl380-g9/",
+      "inStock": true,
+      "minPriceCents": 1350000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1350000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1400000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1690000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5655,
+      "slug": "servidor-dell-poweredge-r530",
+      "name": "Dell PowerEdge R530",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r530/",
+      "inStock": true,
+      "minPriceCents": 1450000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1450000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1900000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1580000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 1750000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2145000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4875,
+      "slug": "servidor-dell-r440",
+      "name": "Dell PowerEdge R440",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r440/",
+      "inStock": true,
+      "minPriceCents": 1550000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1550000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1680000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1770000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4886,
+      "slug": "servidor-dell-r630",
+      "name": "Dell PowerEdge R630",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r630/",
+      "inStock": true,
+      "minPriceCents": 1625000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1625000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1675000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1780000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 1860000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2280000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 8147,
+      "slug": "servidor-hp-proliant-dl360-g10",
+      "name": "HP Proliant DL360 G10",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen10",
+      "url": "https://msserver.com.br/servidor/servidor-hp-proliant-dl360-g10/",
+      "inStock": true,
+      "minPriceCents": 1730000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": null,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1730000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1750000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5605,
+      "slug": "servidor-dell-poweredge-r730",
+      "name": "Dell PowerEdge R730",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r730/",
+      "inStock": true,
+      "minPriceCents": 1850000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 1850000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 1900000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2150000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2260000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2395000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 8141,
+      "slug": "servidor-hp-proliant-dl380-g10",
+      "name": "HP Proliant DL380 G10",
+      "brand": "HPE",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "HPE ProLiant Gen10",
+      "url": "https://msserver.com.br/servidor/servidor-hp-proliant-dl380-g10/",
+      "inStock": true,
+      "minPriceCents": 1950000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": null,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": null,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 1950000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 7529,
+      "slug": "servidor-dell-poweredge-r540-copy",
+      "name": "Dell PowerEdge R540",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r540-copy/",
+      "inStock": true,
+      "minPriceCents": 2050000,
+      "variations": [
+        {
+          "ramGb": 16,
+          "priceCents": 2050000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2100000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2200000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2350000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5632,
+      "slug": "servidor-dell-poweredge-r640",
+      "name": "Dell PowerEdge R640",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r640/",
+      "inStock": true,
+      "minPriceCents": 2050000,
+      "variations": [
+        {
+          "ramGb": 16,
+          "priceCents": 2050000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2125000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2280000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2390000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 5614,
+      "slug": "servidor-dell-poweredge-r730-xd",
+      "name": "Dell PowerEdge R730 XD",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "e5v34",
+      "sockets": 2,
+      "family": "Dell PowerEdge 13ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r730-xd/",
+      "inStock": true,
+      "minPriceCents": 2050000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 2050000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 2200000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2300000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2410000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2545000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 4990,
+      "slug": "servidor-dell-r740",
+      "name": "Dell PowerEdge R740",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-r740/",
+      "inStock": true,
+      "minPriceCents": 2350000,
+      "variations": [
+        {
+          "ramGb": 16,
+          "priceCents": 2350000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2400000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2500000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 2650000,
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "id": 8134,
+      "slug": "servidor-dell-poweredge-r740xd",
+      "name": "Dell PowerEdge R740XD",
+      "brand": "Dell",
+      "formFactor": "rack",
+      "tier": "scalable",
+      "sockets": 2,
+      "family": "Dell PowerEdge 14ª geração",
+      "url": "https://msserver.com.br/servidor/servidor-dell-poweredge-r740xd/",
+      "inStock": true,
+      "minPriceCents": 2820000,
+      "variations": [
+        {
+          "ramGb": 8,
+          "priceCents": 2820000,
+          "inStock": true
+        },
+        {
+          "ramGb": 16,
+          "priceCents": 2890000,
+          "inStock": true
+        },
+        {
+          "ramGb": 32,
+          "priceCents": 2900000,
+          "inStock": true
+        },
+        {
+          "ramGb": 64,
+          "priceCents": 2980000,
+          "inStock": true
+        },
+        {
+          "ramGb": 128,
+          "priceCents": 3250000,
+          "inStock": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "correios",
+    "name": "Correios",
+    "width": 343,
+    "height": 73
+  },
+  {
+    "slug": "exercito-brasileiro",
+    "name": "Exército Brasileiro",
+    "width": 53,
+    "height": 96
+  },
+  {
+    "slug": "mcdonald-s",
+    "name": "McDonald's",
+    "width": 142,
+    "height": 96
+  },
+  {
+    "slug": "datasafer",
+    "name": "Datasafer",
+    "width": 350,
+    "height": 64
+  },
+  {
+    "slug": "shopping-aricanduva",
+    "name": "Shopping Aricanduva",
+    "width": 127,
+    "height": 96
+  },
+  {
+    "slug": "otimi-tecnologia",
+    "name": "Otimi Tecnologia",
+    "width": 324,
+    "height": 96
+  },
+  {
+    "slug": "way-306",
+    "name": "WAY 306",
+    "width": 188,
+    "height": 96
+  },
+  {
+    "slug": "voxline",
+    "name": "Voxline",
+    "width": 249,
+    "height": 71
+  },
+  {
+    "slug": "zafex",
+    "name": "Zafex",
+    "width": 363,
+    "height": 79
+  },
+  {
+    "slug": "attri",
+    "name": "Attri",
+    "width": 161,
+    "height": 70
+  }
+]

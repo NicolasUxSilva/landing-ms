@@ -1,0 +1,127 @@
+---
+import { iconData } from '../lib/icons';
+import Icon from './Icon.astro';
+import { CONTACT, whatsappUrl } from '../config/site';
+import { STEPS } from '../simulator/options';
+
+// Sprite de ícones usado pelo simulador (renderizado no navegador).
+const SPRITE = [
+  'layout-dashboard', 'database', 'layers', 'globe', 'folder-archive', 'pen-line', 'circle-help', 'server', 'calendar-sync', 'cloud', 'scale',
+  'pc-case', 'cpu', 'zap', 'hard-drive', 'shield-check', 'wrench', 'compass', 'cloud-upload', 'repeat', 'lock', 'brick-wall', 'network', 'cable',
+  'check', 'arrow-right', 'arrow-left', 'info', 'triangle-alert', 'lightbulb', 'whatsapp', 'mail', 'x', 'rotate-ccw', 'pencil', 'chevron-up',
+  'send', 'badge-check', 'minus', 'plus', 'external-link',
+];
+const symbols = SPRITE.map((name) => {
+  const d = iconData(name);
+  return `<symbol id="sim-i-${name}" viewBox="${d.viewBox}"${d.filled ? ' data-filled="true"' : ''}>${d.body}</symbol>`;
+}).join('');
+const wa = whatsappUrl('Olá! Quero ajuda para dimensionar um servidor dedicado.');
+---
+
+<section class="section sim-section" id="simulador" aria-labelledby="sim-title">
+  <svg class="sim-sprite" aria-hidden="true" focusable="false" set:html={symbols} />
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow"><b>04</b> Simulador</p>
+        <h2 id="sim-title">Monte uma configuração inicial do seu servidor</h2>
+      </div>
+      <div class="sim-intro">
+        <p>Sete etapas rápidas, com orientações para cada uso. O resumo é atualizado em tempo real e um especialista valida tudo antes da proposta.</p>
+        <ul class="sim-expect">
+          <li><Icon name="list-checks" size={18} /> Resumo em tempo real</li>
+          <li><Icon name="badge-check" size={18} /> Preços publicados na compra</li>
+          <li><Icon name="circle-help" size={18} /> Aceita "não sei"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sim" id="configurar" data-simulator>
+      <div class="sim-main">
+        <nav class="sim-progress" aria-label="Etapas do simulador">
+          <ol class="sim-steps" data-steps>
+            {
+              STEPS.map((s, i) => (
+                <li>
+                  <button type="button" class="sim-step" data-goto={i} disabled={i > 0} aria-current={i === 0 ? 'step' : undefined}>
+                    <span class="sim-step-num"><span class="sr-only">Etapa </span>{String(i + 1).padStart(2, '0')}</span>
+                    <span class="sim-step-label">{s.label}<span class="sr-only" data-step-status></span></span>
+                  </button>
+                </li>
+              ))
+            }
+          </ol>
+          <div class="sim-progress-compact" aria-hidden="true">
+            <span data-progress-text>Etapa 1 de {STEPS.length} · {STEPS[0].label}</span>
+            <span class="sim-progress-bar"><i data-progress-bar style={`width:${100 / STEPS.length}%`}></i></span>
+          </div>
+        </nav>
+
+        <div class="sim-stage" data-stage aria-live="off">
+          <div class="sim-fallback">
+            <p class="sim-fallback-title">Carregando o simulador…</p>
+            <noscript>
+              <p>O simulador precisa de JavaScript. Você pode falar direto com um especialista:</p>
+              <p>
+                <a class="btn btn--primary" href={wa}>WhatsApp {CONTACT.whatsappDisplay}</a>
+                <a class="btn btn--outline" href={`mailto:${CONTACT.emailCommercial}`}>{CONTACT.emailCommercial}</a>
+              </p>
+            </noscript>
+          </div>
+        </div>
+
+        <div class="sim-nav" data-nav hidden>
+          <button type="button" class="btn btn--outline" data-prev>
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#sim-i-arrow-left"></use></svg>
+            Voltar
+          </button>
+          <button type="button" class="btn btn--primary sim-next" data-next>
+            Continuar
+            <svg class="icon btn-arrow" width="18" height="18" aria-hidden="true"><use href="#sim-i-arrow-right"></use></svg>
+          </button>
+        </div>
+      </div>
+
+      <aside class="sim-aside on-dark" aria-labelledby="sim-summary-title" data-aside>
+        <div class="sim-summary" data-summary-root>
+          <div class="sim-summary-head">
+            <h3 id="sim-summary-title">Sua configuração</h3>
+            <span class="sim-summary-count" data-summary-count>0 de 6</span>
+          </div>
+          <dl class="sim-summary-list" data-summary-list></dl>
+          <div class="sim-price" data-price></div>
+          <div class="sim-summary-actions" data-summary-actions></div>
+        </div>
+      </aside>
+
+      <div class="sim-mobilebar on-dark" data-mobilebar>
+        <button type="button" class="sim-mobilebar-summary" data-open-sheet aria-haspopup="dialog">
+          <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#sim-i-chevron-up"></use></svg>
+          <span>Resumo <b data-mobile-count>0 de 6</b></span>
+        </button>
+        <button type="button" class="btn btn--primary sim-mobilebar-next" data-next-mobile>
+          Continuar
+          <svg class="icon btn-arrow" width="18" height="18" aria-hidden="true"><use href="#sim-i-arrow-right"></use></svg>
+        </button>
+      </div>
+
+      <dialog class="sim-sheet on-dark" data-sheet aria-labelledby="sim-sheet-title">
+        <div class="sim-sheet-inner">
+          <div class="sim-sheet-head">
+            <h3 id="sim-sheet-title">Sua configuração</h3>
+            <button type="button" class="sim-sheet-close" data-close-sheet aria-label="Fechar resumo">
+              <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#sim-i-x"></use></svg>
+            </button>
+          </div>
+          <div data-sheet-body></div>
+        </div>
+      </dialog>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initSimulator } from '../simulator/ui';
+  const root = document.querySelector<HTMLElement>('[data-simulator]');
+  if (root) initSimulator(root);
+</script>

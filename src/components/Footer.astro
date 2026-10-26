@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/msserver-logo.png';
+import { APP_STORES, CONTACT, LINKS, SITE, SOCIAL } from '../config/site';
+
+const year = new Date().getFullYear();
+const cols = [
+  {
+    title: 'Soluções',
+    links: [
+      ['Servidores', LINKS.servers],
+      ['Nuvem privada', LINKS.privateCloud],
+      ['Extensão de garantia', LINKS.warranty],
+      ['Backup em nuvem', LINKS.backup],
+      ['Consultoria', LINKS.consulting],
+      ['App MSSERVER', LINKS.app],
+    ],
+  },
+  {
+    title: 'Empresa',
+    links: [
+      ['Quem somos', LINKS.about],
+      ['Cases de sucesso', LINKS.cases],
+      ['Blog', LINKS.blog],
+      ['Orçamento', LINKS.quote],
+      ['Obter suporte', LINKS.support],
+    ],
+  },
+];
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href={LINKS.home} class="footer-logo" aria-label="MSSERVER, página inicial">
+        <Image src={logo} alt="MSSERVER Soluções em Servidores" widths={[180, 360]} sizes="168px" loading="lazy" />
+      </a>
+      <p>Venda, locação e manutenção de servidores Dell, HP e IBM, nuvem privada e serviços para empresas em todo o Brasil.</p>
+      <ul class="footer-social" aria-label="Redes sociais">
+        {SOCIAL.map((s) => <li><a href={s.url} target="_blank" rel="noopener">{s.name}</a></li>)}
+      </ul>
+    </div>
+
+    {
+      cols.map((c) => (
+        <nav class="footer-col" aria-label={c.title}>
+          <h2>{c.title}</h2>
+          <ul>
+            {c.links.map(([label, href]) => (
+              <li>
+                <a href={href}>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+
+    <div class="footer-col footer-contact">
+      <h2>Contato</h2>
+      <address>
+        <a href={`https://wa.me/${CONTACT.whatsappNumber}`} target="_blank" rel="noopener">WhatsApp {CONTACT.whatsappDisplay}</a>
+        <a href={`tel:${CONTACT.phoneE164}`}>Telefone {CONTACT.phoneDisplay}</a>
+        <a href={`mailto:${CONTACT.emailCommercial}`}>{CONTACT.emailCommercial}</a>
+        <a href={`mailto:${CONTACT.emailGeneral}`}>{CONTACT.emailGeneral}</a>
+        <span>{CONTACT.address.street}, {CONTACT.address.district}<br />{CONTACT.address.city} – {CONTACT.address.region}</span>
+        <span>{CONTACT.hours}</span>
+      </address>
+      <p class="footer-apps">
+        App MSSERVER: <a href={APP_STORES.ios} target="_blank" rel="noopener">App Store</a> · <a href={APP_STORES.android} target="_blank" rel="noopener">Google Play</a>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© {year} MSSERVER. Todos os direitos reservados.</p>
+      <p>Preços e condições sujeitos a alteração e à disponibilidade de estoque.</p>
+      <a href={SITE.alternatePtPt} hreflang="pt-PT" lang="pt-PT">Versão para Portugal</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: clamp(3.5rem, 2.5rem + 3vw, 5rem) 2rem;
+    background: var(--c-paper);
+    border-top: 1px solid var(--c-line);
+    font-size: 0.92rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 720px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 0.8fr)) minmax(0, 1.2fr);
+      gap: 3rem;
+    }
+  }
+
+  .footer-logo {
+    display: inline-block;
+  }
+
+  .footer-logo :global(img) {
+    width: 168px;
+    height: auto;
+  }
+
+  .footer-brand p {
+    margin-top: 1.25rem;
+    max-width: 38ch;
+    color: var(--c-ink-2);
+  }
+
+  .footer-social {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .footer a {
+    color: var(--c-ink-2);
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: var(--c-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-col h2 {
+    margin-bottom: 1rem;
+    font-family: var(--f-mono);
+    font-size: var(--t-label);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .footer-contact address {
+    display: grid;
+    gap: 0.6rem;
+    font-style: normal;
+    color: var(--c-ink-2);
+  }
+
+  .footer-apps {
+    margin-top: 1.25rem;
+    color: var(--c-ink-3);
+  }
+
+  .footer-apps a {
+    font-weight: 600;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--c-line);
+    color: var(--c-ink-3);
+    font-size: 0.82rem;
+  }
+
+  .footer-bottom a {
+    margin-left: auto;
+  }
+
+  @media (max-width: 719px) {
+    .footer-bottom a {
+      margin-left: 0;
+    }
+  }
+</style>

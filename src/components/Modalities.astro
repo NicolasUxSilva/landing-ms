@@ -1,0 +1,195 @@
+---
+import Icon from './Icon.astro';
+import { MODALITY_CARDS } from '../data/content';
+---
+
+<section class="section section--dark on-dark" id="modalidades" aria-labelledby="mod-title">
+  <div class="mod-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow"><b>02</b> Modalidades</p>
+        <h2 id="mod-title">Três formas de ter o seu servidor dedicado</h2>
+      </div>
+      <p>O mesmo dimensionamento pode virar compra, locação ou um servidor em data center. A diferença está em quem é dono do equipamento, onde ele fica e como você paga.</p>
+    </div>
+
+    <ul class="mod-grid">
+      {
+        MODALITY_CARDS.map((m, i) => (
+          <li class="mod-card" data-reveal style={`--reveal-i:${i}`}>
+            <div class="mod-top">
+              <span class="mod-icon">
+                <Icon name={m.icon} size={22} />
+              </span>
+              <span class="mod-kicker">{m.kicker}</span>
+            </div>
+            <h3>{m.title}</h3>
+            <p class="mod-text">{m.text}</p>
+            <ul class="mod-points">
+              {m.points.map((p) => (
+                <li>
+                  <Icon name="check" size={16} strokeWidth={2.25} />
+                  {p}
+                </li>
+              ))}
+            </ul>
+            {m.link && (
+              <a class="mod-more" href={m.link.href}>
+                {m.link.label} <Icon name="arrow-right" size={15} />
+              </a>
+            )}
+            <div class="mod-actions">
+              <a class="btn btn--outline-dark" href="#configurar" data-sim-preset={`modality:${m.modality}`} data-track="cta_click" data-track-location={`modalidade-${m.modality}`}>
+                {m.cta}
+                <Icon name="arrow-right" class="btn-arrow" />
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mod-note">
+      <Icon name="scale" size={18} />
+      <span>Na dúvida entre as três? No simulador, marque <strong>"Ainda não sei, quero comparar"</strong> e receba as opções lado a lado na proposta.</span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .section--dark {
+    overflow: hidden;
+  }
+
+  .mod-glow {
+    position: absolute;
+    inset: -20% -10% auto auto;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(closest-side, rgb(61 58 134 / 0.5), transparent);
+    pointer-events: none;
+  }
+
+  .mod-grid {
+    position: relative;
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 960px) {
+    .mod-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .mod-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+    border: 1px solid var(--c-line-dark);
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.015));
+  }
+
+  .mod-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mod-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgb(249 131 5 / 0.12);
+    color: var(--c-orange);
+  }
+
+  .mod-kicker {
+    font-family: var(--f-mono);
+    font-size: var(--t-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-on-dark-3);
+  }
+
+  .mod-card h3 {
+    margin-top: 0.5rem;
+    font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem);
+    max-width: 18ch;
+  }
+
+  .mod-text {
+    color: var(--c-on-dark-2);
+  }
+
+  .mod-points {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--c-line-dark);
+    font-size: 0.95rem;
+  }
+
+  .mod-points li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .mod-points :global(svg) {
+    flex: none;
+    margin-top: 0.25rem;
+    color: var(--c-success-on-dark);
+  }
+
+  .mod-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.25rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
+  .mod-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    color: var(--c-orange);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .mod-more:hover {
+    color: var(--c-on-dark);
+  }
+
+  .mod-note {
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+    color: var(--c-on-dark-2);
+  }
+
+  .mod-note :global(svg) {
+    flex: none;
+    margin-top: 0.2rem;
+    color: var(--c-orange);
+  }
+
+  .mod-note strong {
+    color: var(--c-on-dark);
+    font-weight: 600;
+  }
+</style>

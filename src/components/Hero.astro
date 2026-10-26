@@ -1,0 +1,431 @@
+---
+import Icon from './Icon.astro';
+import ServerIllustration from './ServerIllustration.astro';
+import { HERO_PROOF } from '../data/content';
+import { whatsappUrl } from '../config/site';
+import catalogJson from '../data/catalog.json';
+import { brl } from '../simulator/options';
+import { priceInfo } from '../simulator/summary';
+import { emptyState, type Catalog } from '../simulator/types';
+
+const catalog = catalogJson as Catalog;
+// Exemplo ilustrativo montado com dados reais do catálogo publicado.
+const example = { ...emptyState(), workloads: ['virtualization', 'database'] as const, modality: 'buy' as const, formFactor: 'rack' as const, processor: 'scalable', memory: '64' };
+const price = priceInfo({ ...example, workloads: [...example.workloads] }, catalog);
+const fetched = new Date(catalog.fetchedAt).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+const wa = whatsappUrl('Olá! Estou na página de servidores dedicados e gostaria de falar com um especialista.');
+
+const specs = [
+  { k: 'Uso', v: 'Virtualização + banco de dados' },
+  { k: 'Plataforma', v: 'Intel Xeon Scalable · rack' },
+  { k: 'Memória', v: '64 GB' },
+  { k: 'Discos', v: 'SSD · 1 a 4 TB' },
+  { k: 'Garantia', v: '1 ano + extensão até 5 anos' },
+];
+---
+
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker"><span class="kicker-mark" aria-hidden="true"></span>Servidores dedicados para empresas</p>
+      <h1 id="hero-title">Servidores dedicados no <span class="hl">tamanho certo</span> para a sua operação.</h1>
+      <p class="hero-lead">
+        Compre, alugue ou hospede em data center servidores Dell, HP e IBM configurados para o seu cenário, com garantia padrão de 1&nbsp;ano e extensão até 5&nbsp;anos, suporte de especialistas e consultoria de implantação.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--primary btn--lg" href="#configurar" data-sim-start data-track="cta_click" data-track-location="hero">
+          Simular meu servidor
+          <Icon name="arrow-right" class="btn-arrow" />
+        </a>
+        <a class="btn btn--outline btn--lg" href={wa} target="_blank" rel="noopener" data-track="contact_whatsapp_click" data-track-location="hero">
+          <Icon name="whatsapp" class="wa-icon" />
+          Falar com um especialista
+        </a>
+      </div>
+      <p class="hero-note">7 etapas rápidas. Seus dados de contato só são pedidos no final.</p>
+
+      <ul class="hero-proof" aria-label="Destaques">
+        {
+          HERO_PROOF.map((p) => (
+            <li>
+              <Icon name={p.icon} size={20} />
+              <span>
+                <strong>{p.title}</strong>
+                <small>{p.text}</small>
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <figure class="console on-dark">
+        <div class="console-pattern" aria-hidden="true"></div>
+        <header class="console-head">
+          <span class="console-brand">Simulador MSSERVER</span>
+          <span class="console-tag">Exemplo</span>
+        </header>
+        <ServerIllustration class="console-server" />
+        <dl class="console-specs">
+          {
+            specs.map((s) => (
+              <div>
+                <dt>{s.k}</dt>
+                <dd>{s.v}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        <figcaption class="console-foot">
+          {
+            price.kind === 'published' ? (
+              <p class="console-price">
+                <span>Referência publicada · a partir de</span>
+                <strong>{brl(price.fromCents)}</strong>
+                <small>{price.models[0].name} com 64 GB, no catálogo de {fetched}</small>
+              </p>
+            ) : (
+              <p class="console-price">
+                <span>Proposta</span>
+                <strong>Sob medida</strong>
+              </p>
+            )
+          }
+          <a class="console-link" href="#configurar" data-sim-start data-track="cta_click" data-track-location="hero-console">
+            Montar a minha <Icon name="arrow-right" size={18} class="btn-arrow" />
+          </a>
+        </figcaption>
+      </figure>
+      <p class="hero-badge">
+        <Icon name="badge-check" size={18} />
+        Toda configuração é validada por um especialista antes da proposta
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: clamp(2.5rem, 1rem + 4vw, 4.5rem) clamp(4rem, 2rem + 6vw, 7rem);
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgb(27 24 32 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(27 24 32 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 70% at 70% 30%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 70% 30%, #000 20%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: grid;
+    gap: clamp(3rem, 2rem + 3vw, 4.5rem);
+    align-items: center;
+  }
+
+  @media (min-width: 1100px) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    }
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 0.8rem 0.4rem 0.6rem;
+    border: 1px solid var(--c-line-2);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.6);
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-ink-2);
+  }
+
+  .kicker-mark {
+    width: 9px;
+    height: 9px;
+    background: var(--c-orange);
+    transform: rotate(45deg);
+    border-radius: 1px;
+  }
+
+  h1 {
+    font-size: var(--t-hero);
+    letter-spacing: -0.035em;
+    line-height: 1.03;
+    max-width: 17ch;
+  }
+
+  .hl {
+    background: linear-gradient(transparent 68%, rgb(249 131 5 / 0.32) 68%, rgb(249 131 5 / 0.32) 92%, transparent 92%);
+    padding-inline: 0.04em;
+  }
+
+  .hero-lead {
+    margin-top: 1.5rem;
+    max-width: 54ch;
+    color: var(--c-ink-2);
+    font-size: var(--t-lead);
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-note {
+    margin-top: 0.9rem;
+    color: var(--c-ink-3);
+    font-size: var(--t-small);
+  }
+
+  .hero-proof {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+    margin-top: clamp(2.25rem, 1.5rem + 2vw, 3rem);
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--c-line);
+  }
+
+  @media (min-width: 640px) and (max-width: 1099px) {
+    .hero-proof {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .hero-proof li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .hero-proof li > :global(svg) {
+    flex: none;
+    margin-top: 2px;
+    color: var(--c-orange-deep);
+  }
+
+  .hero-proof strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .hero-proof small {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--c-ink-3);
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  /* ——— Console ——— */
+  .hero-visual {
+    position: relative;
+  }
+
+  @media (max-width: 1099px) {
+    .hero-visual {
+      max-width: 640px;
+    }
+  }
+
+  .console {
+    position: relative;
+    margin: 0;
+    padding: clamp(1.25rem, 0.8rem + 1.5vw, 2rem);
+    border-radius: var(--r-xl);
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgb(61 58 134 / 0.55), transparent 55%),
+      radial-gradient(80% 60% at 0% 100%, rgb(249 131 5 / 0.12), transparent 60%),
+      var(--c-indigo-950);
+    color: var(--c-on-dark);
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .console-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-image:
+      repeating-linear-gradient(30deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(150deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 28px);
+  }
+
+  .console-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .console-brand {
+    color: var(--c-on-dark-2);
+  }
+
+  .console-tag {
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--c-line-dark-2);
+    border-radius: 6px;
+    color: var(--c-on-dark-2);
+  }
+
+  .console :global(.console-server) {
+    margin: clamp(1.5rem, 1rem + 2vw, 2.25rem) 0 clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  }
+
+  .console-specs {
+    margin: 0;
+    display: grid;
+    border-top: 1px solid var(--c-line-dark);
+  }
+
+  .console-specs div {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--c-line-dark);
+  }
+
+  .console-specs dt {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--c-on-dark-3);
+    padding-top: 0.15rem;
+  }
+
+  .console-specs dd {
+    margin: 0;
+    font-size: 0.925rem;
+    font-weight: 500;
+  }
+
+  .console-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .console-price {
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .console-price span {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-on-dark-3);
+  }
+
+  .console-price strong {
+    font-family: var(--f-display);
+    font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.7rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .console-price small {
+    color: var(--c-on-dark-3);
+    font-size: 0.78rem;
+  }
+
+  .console-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: none;
+    padding: 0.65rem 0.95rem;
+    border-radius: 10px;
+    background: rgb(255 255 255 / 0.08);
+    border: 1px solid var(--c-line-dark-2);
+    color: var(--c-on-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.18s var(--ease-out);
+  }
+
+  .console-link:hover {
+    background: rgb(255 255 255 / 0.14);
+  }
+
+  .console-link:hover :global(.btn-arrow) {
+    transform: translateX(3px);
+  }
+
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    margin: -1.4rem auto 0 1.5rem;
+    position: relative;
+    padding: 0.7rem 0.95rem;
+    border-radius: 12px;
+    background: var(--c-surface);
+    border: 1px solid var(--c-line);
+    box-shadow: var(--shadow-1);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .hero-badge :global(svg) {
+    flex: none;
+    color: var(--c-success);
+  }
+
+  @media (max-width: 520px) {
+    .console-foot {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .console-link {
+      justify-content: center;
+    }
+
+    .console-specs div {
+      grid-template-columns: 6rem minmax(0, 1fr);
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

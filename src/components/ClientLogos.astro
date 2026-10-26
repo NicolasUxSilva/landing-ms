@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import clients from '../data/clients.json';
+
+// Logos publicados pela MSSERVER em "Alguns clientes" na landing atual.
+const files = import.meta.glob<{ default: ImageMetadata }>('../assets/clients/*.png', { eager: true });
+// Dimensiona cada logo pela área (e não só pela altura) para equilibrar o peso visual.
+const fit = (w: number, h: number) => {
+  const ratio = w / h;
+  let width = Math.sqrt(4600 * ratio);
+  let height = width / ratio;
+  if (height > 56) [height, width] = [56, 56 * ratio];
+  if (width > 156) [width, height] = [156, 156 / ratio];
+  return { width: Math.round(width), height: Math.round(height) };
+};
+const logos = clients.map((c) => ({ ...c, ...fit(c.width, c.height), src: files[`../assets/clients/${c.slug}.png`].default }));
+---
+
+<section class="clients" aria-labelledby="clients-title">
+  <div class="container clients-inner">
+    <h2 id="clients-title" class="clients-title">Empresas que já confiaram na MSSERVER</h2>
+    <ul class="clients-list">
+      {
+        logos.map((l) => (
+          <li>
+            <Image src={l.src} alt={l.name} width={l.width} height={l.height} densities={[1, 2]} loading="lazy" class="client-logo" />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .clients {
+    padding-block: 0 clamp(3.5rem, 2rem + 4vw, 5.5rem);
+  }
+
+  .clients-inner {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .clients-title {
+    font-family: var(--f-mono);
+    font-size: var(--t-label);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+
+  .clients-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--c-line);
+    border-left: 1px solid var(--c-line);
+  }
+
+  .clients-list li {
+    display: grid;
+    place-items: center;
+    min-height: 76px;
+    padding: 0.85rem;
+    border-right: 1px solid var(--c-line);
+    border-bottom: 1px solid var(--c-line);
+  }
+
+  .client-logo {
+    max-width: 78%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.2s var(--ease-out);
+  }
+
+  .clients-list li:hover .client-logo {
+    opacity: 0.95;
+  }
+
+  @media (min-width: 640px) {
+    .clients-list {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .clients-list li {
+      min-height: 96px;
+      padding: 1.25rem;
+    }
+
+    .client-logo {
+      max-width: 100%;
+    }
+  }
+</style>

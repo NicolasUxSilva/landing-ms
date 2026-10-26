@@ -1,0 +1,41 @@
+{
+  "name": "msserver-servidores-dedicados",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Landing page de servidores dedicados da MSSERVER com simulador de configuração",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "sync:catalog": "node scripts/sync-catalog.mjs",
+    "assets": "node scripts/prepare-assets.mjs",
+    "build:wp": "node wordpress/build.mjs",
+    "wp:dev": "npx -y @wp-playground/cli@3.1.58 server --port=9400 --php=8.3 --wp=latest --blueprint=wordpress/dev/blueprint.json --mount-before-install=\"$PWD/wordpress/dist:/msslp-dist\" --mount=\"$PWD/wordpress/dev/mu-plugins:/wordpress/wp-content/mu-plugins\"",
+    "test:wp": "playwright test -c wordpress/test/playwright.wp.config.ts"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource-variable/sora": "5.3.0",
+    "astro": "7.3.8",
+    "lucide-static": "1.61.0",
+    "sharp": "0.34.5",
+    "simple-icons": "16.36.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  }
+}

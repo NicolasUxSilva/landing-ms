@@ -1,0 +1,306 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/msserver-logo.png';
+import Icon from './Icon.astro';
+import { CONTACT, LINKS, whatsappUrl } from '../config/site';
+
+const nav = [
+  { href: '#aplicacoes', label: 'Aplicações' },
+  { href: '#modalidades', label: 'Modalidades' },
+  { href: '#diferenciais', label: 'Diferenciais' },
+  { href: '#equipamentos', label: 'Equipamentos' },
+  { href: '#duvidas', label: 'Dúvidas' },
+];
+const wa = whatsappUrl('Olá! Estou na página de servidores dedicados e gostaria de falar com um especialista.');
+---
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href={LINKS.home} aria-label="MSSERVER, ir para a página inicial">
+      <Image src={logo} alt="MSSERVER Soluções em Servidores" widths={[160, 320, 480]} sizes="148px" loading="eager" fetchpriority="high" class="brand-logo" />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Seções da página">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn--outline btn--sm header-wa" href={wa} target="_blank" rel="noopener" data-track="contact_whatsapp_click" data-track-location="header">
+        <Icon name="whatsapp" class="wa-icon" size={18} />
+        <span>Falar com especialista</span>
+      </a>
+      <a class="btn btn--primary btn--sm header-cta" href="#configurar" data-sim-start data-track="cta_click" data-track-location="header">
+        Simular servidor
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-movel" aria-label="Abrir menu" data-menu-toggle>
+        <span class="menu-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu-movel" class="mobile-menu" hidden>
+    <nav class="container mobile-menu-inner" aria-label="Menu">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}<Icon name="arrow-right" size={18} /></a></li>
+        ))}
+      </ul>
+      <div class="mobile-menu-actions">
+        <a class="btn btn--primary btn--lg" href="#configurar" data-sim-start data-track="cta_click" data-track-location="menu">Simular servidor</a>
+        <a class="btn btn--outline btn--lg" href={wa} target="_blank" rel="noopener" data-track="contact_whatsapp_click" data-track-location="menu">
+          <Icon name="whatsapp" class="wa-icon" size={18} /> WhatsApp {CONTACT.whatsappDisplay}
+        </a>
+      </div>
+      <p class="mobile-menu-meta">{CONTACT.hours} · <a href={`tel:${CONTACT.phoneE164}`}>{CONTACT.phoneDisplay}</a></p>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(245 244 240 / 0.82);
+    backdrop-filter: saturate(1.4) blur(14px);
+    -webkit-backdrop-filter: saturate(1.4) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s var(--ease-out), background-color 0.25s var(--ease-out);
+  }
+
+  .site-header:global(.is-scrolled) {
+    border-bottom-color: var(--c-line);
+    background: rgb(245 244 240 / 0.92);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: var(--header-h);
+  }
+
+  .brand {
+    flex: none;
+    display: block;
+    border-radius: 6px;
+  }
+
+  .brand-logo {
+    width: 148px;
+    height: auto;
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: 0.25rem;
+    margin-inline: auto;
+  }
+
+  .nav-desktop a {
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    color: var(--c-ink-2);
+    font-size: 0.925rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s var(--ease-out), background-color 0.15s var(--ease-out);
+  }
+
+  .nav-desktop a:hover {
+    color: var(--c-ink);
+    background: rgb(27 24 32 / 0.05);
+  }
+
+  .nav-desktop a:global(.is-active) {
+    color: var(--c-ink);
+  }
+
+  .nav-desktop a:global(.is-active)::after {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--c-orange);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .header-wa {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--c-line-2);
+    border-radius: 12px;
+    background: var(--c-surface);
+  }
+
+  .menu-toggle-bars,
+  .menu-toggle-bars::before,
+  .menu-toggle-bars::after {
+    display: block;
+    width: 18px;
+    height: 1.75px;
+    border-radius: 2px;
+    background: var(--c-ink);
+    transition: transform 0.25s var(--ease-out), opacity 0.2s;
+  }
+
+  .menu-toggle-bars {
+    position: relative;
+  }
+
+  .menu-toggle-bars::before,
+  .menu-toggle-bars::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .menu-toggle-bars::before {
+    top: -6px;
+  }
+
+  .menu-toggle-bars::after {
+    top: 6px;
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle-bars {
+    background: transparent;
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle-bars::before {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-toggle-bars::after {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: var(--header-h) 0 0;
+    background: var(--c-paper);
+    border-top: 1px solid var(--c-line);
+    overflow-y: auto;
+    animation: menu-in 0.25s var(--ease-out);
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+
+  .mobile-menu-inner {
+    padding-block: 1rem 2rem;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+  }
+
+  .mobile-menu li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 0.25rem;
+    border-bottom: 1px solid var(--c-line);
+    font-family: var(--f-display);
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .mobile-menu li a :global(svg) {
+    color: var(--c-ink-3);
+  }
+
+  .mobile-menu-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .mobile-menu-meta {
+    margin-top: 1.25rem;
+    color: var(--c-ink-3);
+    font-size: var(--t-small);
+  }
+
+  :global(html.menu-open) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 419px) {
+    .brand-logo {
+      width: 122px;
+    }
+
+    .header-inner {
+      gap: 0.75rem;
+    }
+
+    .header-cta {
+      padding-inline: 0.8rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 339px) {
+    .header-cta {
+      display: none;
+    }
+  }
+
+  @media (min-width: 720px) {
+    .header-wa {
+      display: inline-flex;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .nav-desktop {
+      display: flex;
+    }
+
+    .header-actions {
+      margin-left: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1100px) and (max-width: 1239px) {
+    .header-wa span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .header-wa {
+      padding-inline: 0.7rem;
+    }
+  }
+</style>

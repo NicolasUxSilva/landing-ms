@@ -1,0 +1,16 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/servidores-dedicados-para-empresas/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "steps": [
+    { "step": "setSiteOptions", "options": { "permalink_structure": "/%postname%/", "blogname": "MSSERVER (WordPress local de teste)" } },
+    { "step": "installTheme", "themeData": { "resource": "wordpress.org/themes", "slug": "hello-elementor" }, "options": { "activate": true } },
+    { "step": "installPlugin", "pluginData": { "resource": "wordpress.org/plugins", "slug": "elementor" }, "options": { "activate": true } },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; $id = wp_insert_post(array('post_type' => 'page', 'post_status' => 'publish', 'post_title' => 'Servidores Dedicados para Empresas', 'post_name' => 'servidores-dedicados-para-empresas', 'post_content' => '<h2>Página original da campanha (Elementor)</h2><p>Conteúdo antigo, usado para validar a reversão.</p>')); update_post_meta($id, '_wp_page_template', 'elementor_header_footer'); flush_rewrite_rules();"
+    },
+    { "step": "installPlugin", "pluginData": { "resource": "vfs", "path": "/msslp-dist/msserver-landing-servidores.zip" }, "options": { "activate": true } }
+  ]
+}

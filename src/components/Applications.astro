@@ -1,0 +1,197 @@
+---
+import Icon from './Icon.astro';
+import { APPLICATIONS } from '../data/content';
+---
+
+<section class="section" id="aplicacoes" aria-labelledby="apps-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow"><b>01</b> Aplicações</p>
+        <h2 id="apps-title">Quando um servidor dedicado faz sentido</h2>
+      </div>
+      <p>
+        Um servidor dedicado é um equipamento físico usado só pela sua empresa. Processador, memória e discos ficam reservados para os seus sistemas, sem disputa com outros clientes.
+      </p>
+    </div>
+
+    <ul class="apps-grid">
+      {
+        APPLICATIONS.map((app, i) => (
+          <li class="app-card" data-reveal style={`--reveal-i:${i % 3}`}>
+            <div class="app-head">
+              <div class="icon-tile">
+                <Icon name={app.icon} />
+              </div>
+              <h3>{app.title}</h3>
+            </div>
+            <p>{app.text}</p>
+            <div class="app-priorities">
+              <span class="app-priorities-label">O que mais pesa</span>
+              <ul>
+                {app.priorities.map((p) => <li class="chip">{p}</li>)}
+              </ul>
+            </div>
+            <a class="app-link" href="#configurar" data-sim-preset={`workload:${app.workload}`} data-track="cta_click" data-track-location={`aplicacao-${app.workload}`}>
+              Configurar para este uso
+              <Icon name="arrow-right" size={18} class="btn-arrow" />
+            </a>
+          </li>
+        ))
+      }
+      <li class="app-card app-card--help on-dark" data-reveal style="--reveal-i:2">
+        <div class="icon-tile">
+          <Icon name="circle-help" />
+        </div>
+        <h3>Não sabe por onde começar?</h3>
+        <p>Comece o simulador com a opção "Ainda não sei". As etapas aceitam respostas em aberto e um especialista completa o dimensionamento.</p>
+        <a class="btn btn--primary" href="#configurar" data-sim-preset="workload:unsure" data-track="cta_click" data-track-location="aplicacao-nao-sei">
+          Começar sem saber tudo
+          <Icon name="arrow-right" class="btn-arrow" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .apps-grid {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 680px) {
+    .apps-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .apps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .app-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: clamp(1.5rem, 1.2rem + 0.8vw, 2rem);
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-lg);
+    background: var(--c-surface);
+    transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+  }
+
+  .app-card:hover {
+    border-color: var(--c-line-2);
+    box-shadow: var(--shadow-1);
+  }
+
+  .app-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .app-card h3 {
+    font-size: var(--t-h3);
+  }
+
+  .app-card--help h3 {
+    margin-top: 0.6rem;
+  }
+
+  @media (max-width: 679px) {
+    .app-card {
+      gap: 0.7rem;
+      padding: 1.25rem;
+    }
+
+    .app-head {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .app-priorities-label {
+      display: none;
+    }
+
+    .app-link {
+      padding-top: 0.5rem;
+    }
+  }
+
+  .app-card > p {
+    color: var(--c-ink-2);
+  }
+
+  .app-priorities {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .app-priorities-label {
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+
+  .app-priorities ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .app-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    color: var(--c-indigo-600);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .app-link:hover {
+    color: var(--c-ink);
+  }
+
+  .app-link:hover :global(.btn-arrow) {
+    transform: translateX(3px);
+  }
+
+  .app-card--help {
+    background:
+      radial-gradient(90% 70% at 100% 0%, rgb(61 58 134 / 0.6), transparent 60%),
+      var(--c-indigo-950);
+    border-color: transparent;
+    color: var(--c-on-dark);
+  }
+
+  .app-card--help > p {
+    color: var(--c-on-dark-2);
+  }
+
+  .app-card--help .icon-tile {
+    background: rgb(255 255 255 / 0.08);
+    color: var(--c-orange);
+  }
+
+  .app-card--help .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    white-space: normal;
+    text-align: left;
+  }
+</style>

@@ -1,0 +1,234 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import catalogJson from '../data/catalog.json';
+import { brl, TIERS } from '../simulator/options';
+import type { Catalog } from '../simulator/types';
+import { LINKS } from '../config/site';
+
+const catalog = catalogJson as Catalog;
+const photos = import.meta.glob<{ default: ImageMetadata }>('../assets/products/*.jpg', { eager: true });
+
+// Modelos em destaque: somente os que têm foto do próprio modelo.
+const FEATURED: [slug: string, photo: string][] = [
+  ['servidor-dell-r740', 'dell-r740'],
+  ['servidor-dell-poweredge-r640', 'dell-r640'],
+  ['servidor-hp-proliant-dl380-g10', 'hp-dl380-g10'],
+  ['servidor-dell-r630', 'dell-r630'],
+  ['servidor-dell-t630', 'dell-t630'],
+  ['servidor-torre-hp-ml350-g9', 'hp-ml350-g9'],
+];
+
+const items = FEATURED.flatMap(([slug, photo]) => {
+  const m = catalog.models.find((x) => x.slug === slug);
+  if (!m || m.minPriceCents === null) return [];
+  const rams = m.variations.filter((v) => v.priceCents !== null).map((v) => v.ramGb);
+  return [{ ...m, photo: photos[`../assets/products/${photo}.jpg`].default, ramRange: rams.length > 1 ? `${Math.min(...rams)} a ${Math.max(...rams)} GB` : `${rams[0]} GB` }];
+});
+const fetched = new Date(catalog.fetchedAt).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+---
+
+<section class="section section--surface" id="equipamentos" aria-labelledby="cat-title">
+  <div class="container">
+    <div class="section-head section-head--split">
+      <div>
+        <p class="eyebrow"><b>05</b> Equipamentos</p>
+        <h2 id="cat-title">Alguns modelos com preço publicado</h2>
+      </div>
+      <p>Prefere partir de um modelo? Estes servidores estão no catálogo da MSSERVER com preço por configuração de memória. Use um deles como ponto de partida no simulador.</p>
+    </div>
+
+    <ul class="cat-grid">
+      {
+        items.map((m, i) => (
+          <li class="cat-card" data-reveal style={`--reveal-i:${i % 3}`}>
+            <div class="cat-photo">
+              <Image src={m.photo} alt={`Servidor ${m.name}`} widths={[360, 560, 720]} sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw" loading="lazy" />
+            </div>
+            <div class="cat-body">
+              <p class="cat-meta">
+                <span>{m.formFactor === 'rack' ? 'Rack' : 'Torre'}</span>
+                <span>{TIERS[m.tier].title}</span>
+              </p>
+              <h3>{m.name}</h3>
+              <p class="cat-ram">Memória: {m.ramRange}</p>
+              <p class="cat-price">
+                <small>a partir de</small>
+                {brl(m.minPriceCents!)}
+              </p>
+              <div class="cat-actions">
+                <a class="btn btn--outline btn--sm" href="#configurar" data-sim-preset={`model:${m.slug}`} data-track="cta_click" data-track-location={`modelo-${m.slug}`}>
+                  Configurar a partir deste
+                </a>
+                <a class="cat-link" href={m.url}>
+                  Ver no catálogo <Icon name="arrow-right" size={16} class="btn-arrow" />
+                </a>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="cat-foot">
+      <p>Preços publicados em msserver.com.br em {fetched}, para a menor configuração de memória com preço. Processadores, discos e serviços são confirmados na proposta, conforme estoque.</p>
+      <a class="btn btn--dark" href={LINKS.servers}>
+        Ver todos os servidores
+        <Icon name="arrow-right" class="btn-arrow" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cat-grid {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .cat-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .cat-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .cat-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--c-line);
+    border-radius: var(--r-lg);
+    background: var(--c-surface);
+    overflow: hidden;
+    transition: box-shadow 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  }
+
+  .cat-card:hover {
+    border-color: var(--c-line-2);
+    box-shadow: var(--shadow-1);
+  }
+
+  .cat-photo {
+    aspect-ratio: 920 / 680;
+    background: #fff;
+    border-bottom: 1px solid var(--c-line);
+    overflow: hidden;
+  }
+
+  .cat-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .cat-card:hover .cat-photo :global(img) {
+    transform: scale(1.03);
+  }
+
+  .cat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    padding: 1.25rem 1.4rem 1.4rem;
+  }
+
+  .cat-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.9rem;
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--c-ink-3);
+  }
+
+  .cat-meta span + span::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    margin-right: 0.9rem;
+    border-radius: 50%;
+    background: var(--c-line-2);
+    vertical-align: middle;
+  }
+
+  .cat-body h3 {
+    margin-top: 0.15rem;
+    font-size: 1.2rem;
+  }
+
+  .cat-ram {
+    color: var(--c-ink-2);
+    font-size: 0.9rem;
+  }
+
+  .cat-price {
+    margin-top: 0.6rem;
+    font-family: var(--f-display);
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .cat-price small {
+    display: block;
+    font-family: var(--f-text);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--c-ink-3);
+  }
+
+  .cat-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: auto;
+    padding-top: 1.1rem;
+  }
+
+  .cat-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--c-indigo-600);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .cat-link:hover {
+    color: var(--c-ink);
+  }
+
+  .cat-link:hover :global(.btn-arrow) {
+    transform: translateX(3px);
+  }
+
+  .cat-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .cat-foot p {
+    max-width: 70ch;
+    color: var(--c-ink-3);
+    font-size: 0.85rem;
+  }
+</style>

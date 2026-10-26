@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import Applications from '../components/Applications.astro';
+import Modalities from '../components/Modalities.astro';
+import Differentiators from '../components/Differentiators.astro';
+import Simulator from '../components/Simulator.astro';
+import Catalog from '../components/Catalog.astro';
+import Process from '../components/Process.astro';
+import Proof from '../components/Proof.astro';
+import Faq from '../components/Faq.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { whatsappUrl } from '../config/site';
+
+const wa = whatsappUrl('Olá! Estou na página de servidores dedicados e gostaria de falar com um especialista.');
+---
+
+<Base>
+  <Header />
+  <main id="conteudo">
+    <Hero />
+    <ClientLogos />
+    <Applications />
+    <Modalities />
+    <Differentiators />
+    <Simulator />
+    <Catalog />
+    <Process />
+    <Proof />
+    <Faq />
+    <FinalCta />
+  </main>
+  <Footer />
+  <a class="wa-fab" href={wa} target="_blank" rel="noopener" aria-label="Falar com um especialista no WhatsApp" data-wa-fab data-track="contact_whatsapp_click" data-track-location="flutuante">
+    <Icon name="whatsapp" size={26} />
+  </a>
+</Base>
+
+<style>
+  .wa-fab {
+    position: fixed;
+    right: clamp(1rem, 0.6rem + 1.5vw, 1.75rem);
+    bottom: calc(clamp(1rem, 0.6rem + 1.5vw, 1.75rem) + env(safe-area-inset-bottom));
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1faa53;
+    color: #fff;
+    box-shadow: 0 12px 30px -10px rgb(0 0 0 / 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.9);
+    transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out), visibility 0s linear 0.25s;
+  }
+
+  .wa-fab:global(.is-visible) {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  .wa-fab:hover {
+    background: #189548;
+  }
+</style>
